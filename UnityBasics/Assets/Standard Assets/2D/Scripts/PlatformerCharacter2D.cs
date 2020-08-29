@@ -69,8 +69,9 @@ namespace UnityStandardAssets._2D
             {
                 abilities[i].AbilityFixedUpdate();
             }
-        }
 
+            DrawDebugRay();
+        }
 
         public void Move(float move, bool crouch, bool jump)
         {
@@ -193,6 +194,24 @@ namespace UnityStandardAssets._2D
         public LayerMask GetWhatIsGround()
         {
             return m_WhatIsGround;
+        }
+
+        private void DrawDebugRay()
+        {
+            var rayLenght = 1.2f;
+
+            Debug.DrawLine(m_GroundCheck.position, m_GroundCheck.position - new Vector3(0, rayLenght, 0), Color.green);
+            Debug.DrawLine(m_CeilingCheck.position, m_CeilingCheck.position + new Vector3(0, rayLenght, 0), Color.blue);
+            
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(m_GroundCheck.position, k_GroundedRadius);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(m_CeilingCheck.position, k_CeilingRadius);
         }
     }
 }

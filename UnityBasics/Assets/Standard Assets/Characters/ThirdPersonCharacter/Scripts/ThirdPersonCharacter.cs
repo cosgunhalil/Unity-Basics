@@ -178,6 +178,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void ApplyExtraTurnRotation()
 		{
+			//TODO LERP: https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
 			// help the character turn faster (this is in addition to root rotation in the animation)
 			float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
