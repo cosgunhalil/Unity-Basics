@@ -207,6 +207,16 @@ namespace UnityStandardAssets._2D
 
         private void OnDrawGizmos()
         {
+            if (m_CeilingCheck == null)
+            {
+                return;
+            }
+
+            if (m_GroundCheck == null)
+            {
+                return;
+            }
+
             Gizmos.color = Color.yellow;
             Gizmos.DrawSphere(m_GroundCheck.position, k_GroundedRadius);
 

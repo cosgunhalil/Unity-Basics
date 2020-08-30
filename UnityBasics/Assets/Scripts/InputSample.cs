@@ -12,12 +12,16 @@ public class InputSample : MonoBehaviour
         {
             Debug.Log("Pressed to A");
         }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            Debug.Log("Pressed Up to A");
+        }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))//sol click
         {
             Debug.Log("Left Click!");
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1)) // sağ click
         {
             Debug.Log("Right Click");
         }
@@ -30,6 +34,7 @@ public class InputSample : MonoBehaviour
             Debug.Log("Horizontal = " + horizontal + " / " + "Vertical = " + vertical);
         }
 
+        //development mode'da bir in game logger açmak kapamak istiyorsunuz, 
         if (Input.touchCount > 0)
         {
             Debug.Log("Touch Count = " + Input.touchCount);

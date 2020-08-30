@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MovingCube : MonoBehaviour
 {
@@ -24,10 +25,35 @@ public class MovingCube : MonoBehaviour
     {
         cubeTransform = GetComponent<Transform>();
         targetPosition = new Vector3(-10, 10, 10);
+
+
+        var move = cubeTransform.DOMove(new Vector3(-1, 1, 1), 3.0f).SetEase(Ease.InOutSine);
+
+        var shake = cubeTransform.DOShakeScale(2f, .75f, 50, 50);
+
+        var sequence = DOTween.Sequence();
+        sequence.Append(move);
+        sequence.Append(shake);
+
+        sequence.Play();
+
+        sequence.OnComplete(()=> {
+
+            Debug.Log("Sequence Completed");
+
+        });
+
+        
+    }
+
+    private void OnPositionReached()
+    {
+        
     }
 
     void Update()
     {
+        return;
         //ExecuteVectorMathMovement();
         ExecuteMoveTowardsSample();
         IncreaseTime();
