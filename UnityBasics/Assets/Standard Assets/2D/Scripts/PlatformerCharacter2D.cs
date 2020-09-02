@@ -198,7 +198,7 @@ namespace UnityStandardAssets._2D
 
         private void DrawDebugRay()
         {
-            var rayLenght = 1.2f;
+            var rayLenght = .5f;
 
             Debug.DrawLine(m_GroundCheck.position, m_GroundCheck.position - new Vector3(0, rayLenght, 0), Color.green);
             Debug.DrawLine(m_CeilingCheck.position, m_CeilingCheck.position + new Vector3(0, rayLenght, 0), Color.blue);
